@@ -1,0 +1,24 @@
+[Unit]
+Description=FastAPI Application Service - Linux Troubleshooting POC
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/linux-app-troubleshooting-poc
+Environment="PATH=/home/ubuntu/linux-app-troubleshooting-poc/venv/bin:/usr/local/bin:/usr/bin"
+Environment="APP_ENV=production"
+ExecStart=/home/ubuntu/linux-app-troubleshooting-poc/venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=myapp
+
+# Security sandbox settings
+PrivateTmp=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
