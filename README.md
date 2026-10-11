@@ -31,6 +31,10 @@ A beginner-friendly, production-grade DevOps Proof-of-Concept (POC) demonstratin
 
 ## 1. Architecture Overview
 
+<p align="center">
+  <img src="docs/architecture.png" alt="Linux Application Failure Detection & Root Cause Analysis Architecture" width="850"/>
+</p>
+
 In modern production environments, backend applications run behind an ingress web server or reverse proxy and are managed by an init system (`systemd`):
 
 ```
